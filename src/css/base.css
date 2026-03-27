@@ -1,3 +1,5 @@
+
+
 :root {
   /* font-family: Inter, Avenir, Helvetica, Arial, sans-serif; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -29,4 +31,74 @@ main {
 }
 main:has(.back-link) {
   text-align: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);   
+  gap: 20px;                                 
+  max-width: 1200px;                        
+  margin: 40px auto;                         
+  padding: 0 20px;
+  list-style: none;
+}
+
+.gallery-item {
+  border-radius: 4px;                       
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease;
+  height: 100%;                            
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+}
+
+.gallery-link {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.08);
+}
+
+/* Примусово прибираємо будь-який підпис у basicLightbox */
+.basicLightbox img {
+  margin-bottom: 0 !important;
+}
+
+.basicLightbox figcaption,
+.basicLightbox .basicLightbox__description,
+.basicLightbox p,
+.basicLightbox div {
+  display: none !important;
+}
+
+/* Адаптивність */
+@media (max-width: 992px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);   
+    gap: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .gallery {
+    grid-template-columns: 1fr;             
+    gap: 16px;
+    padding: 0 15px;
+  }
 }
